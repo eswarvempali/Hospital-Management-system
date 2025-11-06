@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hospital-frontend
+  labels:
+    app: hospital-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hospital-frontend
+  template:
+    metadata:
+      labels:
+        app: hospital-frontend
+    spec:
+      containers:
+        - name: frontend
+          image: ghcr.io/eswarvempali/hospital-management-frontend:latest
+          ports:
+            - containerPort: 80
